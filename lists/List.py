@@ -22,13 +22,29 @@ def reverse_list(head):
     return prev
 
 
+def removeNode(head, value):
+    dummy = ListNode(0)
+    dummy.next = head
+    curr = dummy
+
+    while curr and curr.next:
+        if curr.next.val == value:
+            curr.next = curr.next.next  # * Elimina el nodo conectando al siguiente siguiente
+            break  # si solo quieres eliminar una vez
+        curr = curr.next
+
+    return dummy.next
+
+
 # Crear manualmente una lista
-n3 = ListNode(3)
+n4 = ListNode(4)
+n3 = ListNode(3, n4)
 n2 = ListNode(2, n3)
 n1 = ListNode(1, n2)
 
 printList(n1)
-print(n1)
+removeNode(n1, 2)
+printList(n1)
 print(reverse_list(n1))
 print(n3)
-printList(n3)
+printList(n4)
