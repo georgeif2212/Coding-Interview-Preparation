@@ -1,37 +1,89 @@
-def lengthOfLongestSubstring(s: str) -> int:
-    n = len(s) # Get the length of the string
-    maxLength = 0  # Initialize the maximum length of substring
-    charMap = {} # Dictionary to store the last index of each character
-    left = 0 # Left pointer for the sliding window
+# def longestSubstring(s):
+#     longest = 0
+#     counter = 0
+#     i = 0
+#     j = 1
+#     while j < len(s):
+#         if s[i] == s[j]:
+#             counter = j - i
+#             longest = max(longest, counter)
+#             i += 1
+#             j = i + 1
+#         else:
+#             j += 1
 
-    for right in range(n): # Iterate through the string with a right pointer
-        if s[right] not in charMap or charMap[s[right]] < left: # Check if the character is not in the map or is outside the current window
-            charMap[s[right]] = right # Update the last index of the character
-            maxLength = max(maxLength, right - left + 1) # Update the maximum length if the current window is larger
-        else: # If the character is already in the map and within the current window
-            left = charMap[s[right]] + 1 # Move the left pointer to the right of the last occurrence of the character
-            charMap[s[right]] = right # Update the last index of the character
-
-    return maxLength
+#     return longest
 
 
-def lengthOfLongestSubstringTwo(s) :
-    left = max_length = 0 # Initialize left pointer and maximum length
-    char_set = set() # Set to store characters in the current substring
+# longest = longestSubstring("abcdabcbb")
+# print(longest)
 
-    for right in range(len(s)): 
+
+def lengthOfLongestSubstring(s):
+    char_set = set()
+    left = 0
+    max_len = 0
+
+    for right in range(len(s)):
+        # Si el carácter ya está en el set, quita desde la izquierda hasta que ya no esté
         while s[right] in char_set:
+            print("REMOVE: ", s[left])
             char_set.remove(s[left])
             left += 1
-
+        # Añade el nuevo carácter
         char_set.add(s[right])
-        max_length = max(max_length, right - left + 1)
+        print(char_set)
+        print("current-length:", right - left + 1)
+        # Calcula el tamaño actual de la ventana
+        max_len = max(max_len, right - left + 1)
 
-    return max_length
+    return max_len
 
 
+# set(a),max
+#  0 1 2 3 4 5 6 7
+# "a b c a b c b b"
+# lr
+# set(a,b), max=2
+# "a b c a b c b b"
+# l  r
+# set(a,b,c), max=3
+# "a b c a b c b b"
+# l    r
+# set(a,b,c), max=3
+# "a b c a b c b b"
+# l      r
+# set(b,c), max=3
+# "a b c a b c b b"
+#    l   r
+# set(b,c), max=3
+# "a b c a b c b b"
+#      l   r
+# set(b,c), max=3
+# "a b c a b c b b"
+#        l   r
+# set(b,c), max=3
+# "a b c a b c b b"
+#        l     r
+# set(b,c), max=3
+# "a b c a b c b b"
+#          l   r
+# set(b,c), max=3
+# "a b c a b c b b"
+#            l r
 
-# Example usage
-s = "abcdabcdebb"
-print(lengthOfLongestSubstring(s))  # Output: 3
-print(lengthOfLongestSubstringTwo(s))  # Output: 3
+# p w w k e w
+# i j
+s = "abcabcbb"
+print(lengthOfLongestSubstring(s))
+# Input: s = "abcdabcbb"
+# Output: 3
+# Explanation: The answer is "abc", with the length of 3.
+# a b c a b c b b
+# i j
+# a b c a b c b b
+# i   j
+# a b c a b c b b
+# i     j
+# a b c a b c b b
+#   i     j
