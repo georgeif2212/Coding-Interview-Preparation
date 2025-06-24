@@ -21,8 +21,40 @@ def isIsomorphic(s: str, t: str) -> bool:
     return True
 
 
+# s = "e g g"
+# t = "a b b"
+# ch_ind_s ={}, ch_ind_t ={}
+# s = "e g g"
+# t = "a b b"
+#      i
+# ch_ind_s ={e:0}, ch_ind_t ={a:0}
+# s = "e g g"
+# t = "a b b"
+#        i
+# ch_ind_s ={e:0,g:1}, ch_ind_t ={a:0,b:1}
+# s = "e g g"
+# t = "a b b"
+#          i
+# ch_ind_s ={e:0,g:1}, ch_ind_t ={a:0,b:1}
+
+
 s = "egg"
 t = "adb"
 print(isIsomorphic(s, t))
 for c1, c2 in zip(s, t):
     print(c1, c2)
+# s = "e g g"
+# t = "a d b"
+# ch_ind_s ={}, ch_ind_t ={}
+# s = "e g g"
+# t = "a d b"
+#      i
+# ch_ind_s ={e:0}, ch_ind_t ={a:0}
+# s = "e g g"
+# t = "a d b"
+#        i
+# ch_ind_s ={e:0,g:1}, ch_ind_t ={a:0,d:1}
+# s = "e g g"
+# t = "a d b"
+#          i
+# ch_ind_s ={e:0,g:1}, ch_ind_t ={a:0,d:1,b:2}
