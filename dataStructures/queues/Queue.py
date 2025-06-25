@@ -24,6 +24,28 @@ class Queue:
     def __str__(self):
         return f"Cola (frente → final): {self.data}"
 
+from collections import deque
+
+class QueueFast:
+    def __init__(self):
+        self.data = deque()
+
+    def enqueue(self, x):
+        self.data.append(x)
+
+    def dequeue(self):
+        return self.data.popleft()
+
+    def front(self):
+        return self.data[0]
+
+    def empty(self):
+        return not self.data
+
+    def __str__(self):
+        return f"Cola (frente → final): {list(self.data)}"
+
+
 
 q = Queue()
 print(q.empty())  # True
