@@ -2,6 +2,10 @@ def nextGreaterElement(nums):
     stack = []
     res = [-1] * len(nums)
     for i in range(len(nums) - 1, -1, -1):
+        # len(s) - 1: Start at the last index
+        # -1: Ensures the loop stops after the first character
+        # -1: The step value to iterate backwards
+
         while stack and nums[i] >= stack[-1]:
             stack.pop()
         if stack:
