@@ -25,7 +25,7 @@ root.left.right = TreeNode(5)
 
 def preorder(node):
     if node:
-        print(node.val)
+        print(node.val, end=" ")
         preorder(node.left)
         preorder(node.right)
 
@@ -57,7 +57,10 @@ def level_order(root):
             queue.append(node.right)
 
 
-# preorder(root)
-# inorder(root)
-# postorder(root)
+preorder(root)
+print()
+inorder(root)
+print()
+postorder(root)
+print()
 level_order(root)
