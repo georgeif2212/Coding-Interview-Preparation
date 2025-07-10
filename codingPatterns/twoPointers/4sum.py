@@ -1,27 +1,6 @@
 def fourSum(nums, result):
     nums.sort()
     res = []
-    for i in range(len(nums)):
-        j = i + 1
-        k = len(nums) - 1
-        h = k - 1
-        while j < k:
-            total = nums[i] + nums[j] + nums[k] + nums[h]
-            if total < result:
-                j += 1
-            elif total > result:
-                k -= 1
-            else:
-                res.append([nums[i], nums[j], nums[k], nums[h]])
-                j += 1
-                k -= 1
-
-    return res
-
-
-def fourSum(nums, result):
-    nums.sort()
-    res = []
     n = len(nums)
 
     for i in range(n - 3):  # Primer puntero
@@ -48,11 +27,6 @@ def fourSum(nums, result):
                         h -= 1
 
     return res
-
-
-x = fourSum([10, 20, 30, 40, 1, 2], 62)
-print(x)  # Expected output: [[1, 10, 20, 31]]
-
 
 x = fourSum([10, 20, 30, 40, 1, 2], 62)
 print(x)  # Expected output:
