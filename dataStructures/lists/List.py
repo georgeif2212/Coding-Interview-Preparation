@@ -11,17 +11,6 @@ def printList(head):
     print("None")
 
 
-def reverse_list(head):
-    prev = None
-    curr = head
-    while curr:
-        nextNode = curr.next  # temporal para almacenar el siguiente nodo
-        curr.next = prev  # conecta al nodo previo
-        prev = curr  # Esta linea sirve para indicar que el actual será el nuevo previo
-        curr = nextNode  # Esta linea sirve para iterar al siguiente nodo
-    return prev
-
-
 def removeNode(head, value):
     dummy = ListNode(0)
     dummy.next = head
@@ -72,6 +61,6 @@ printList(n1)
 removeNode(n1, 2)
 insertNodeAtPosition(n1, 8, 6)
 printList(n1)
-print(reverse_list(n1))
+
 print(n3)
 printList(n4)
