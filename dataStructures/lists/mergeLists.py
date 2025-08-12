@@ -4,6 +4,13 @@ class ListNode:
         self.next = next
 
 
+def printList(head):
+    while head:
+        print(head.val, end="->")
+        head = head.next
+    print("None")
+
+
 def merge_lists(l1, l2):
     dummy = ListNode()
     tail = dummy
@@ -19,3 +26,19 @@ def merge_lists(l1, l2):
 
     tail.next = l1 or l2
     return dummy.next
+
+
+# Crear manualmente una lista
+n4 = ListNode(4)
+n3 = ListNode(3, n4)
+n2 = ListNode(2, n3)
+n1 = ListNode(1, n2)
+
+n5 = ListNode(8)
+n6 = ListNode(7, n5)
+n7 = ListNode(9, n6)
+n8 = ListNode(0, n7)
+
+nx = merge_lists(n1, n8)
+
+printList(nx)

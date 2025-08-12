@@ -29,5 +29,12 @@ n2 = ListNode(2, n3)
 n1 = ListNode(1, n2)
 
 
+def inorder(node):
+    if node:
+        inorder(node.left)
+        print(node)
+        inorder(node.right)
+
+
 print(reverse_list(n1))
 printList(n4)
