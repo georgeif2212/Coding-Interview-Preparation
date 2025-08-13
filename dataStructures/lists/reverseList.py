@@ -5,14 +5,14 @@ class ListNode:
 
 
 def reverse_list(head):
-    prev = None
+    prevNode = None
     curr = head
     while curr:
         nextNode = curr.next  # temporal para almacenar el siguiente nodo
-        curr.next = prev  # conecta al nodo previo
-        prev = curr  # Esta linea sirve para indicar que el actual será el nuevo previo
+        curr.next = prevNode  # conecta al nodo previo
+        prevNode = curr  # Esta linea sirve para indicar que el actual será el nuevo previo
         curr = nextNode  # Esta linea sirve para iterar al siguiente nodo
-    return prev
+    return prevNode # En prev se queda el último node, en curr queda el none
 
 
 def printList(head):
